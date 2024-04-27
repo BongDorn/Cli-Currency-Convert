@@ -24,6 +24,7 @@ foreach($qry->fetch_array() as $k => $v){
 						<?php endwhile; ?>
 				</select>
 			</div>
+			
 			<div class="col-md-6">
 				<label class="control-label">Loan Type</label>
 				<?php
@@ -46,6 +47,7 @@ foreach($qry->fetch_array() as $k => $v){
 				$plan = $conn->query("SELECT * FROM loan_plan order by `months` desc ");
 				?>
 				<select name="plan_id" id="plan_id" class="custom-select browser-default select2">
+				
 					<option value=""></option>
 						<?php while($row = $plan->fetch_assoc()): ?>
 							<option value="<?php echo $row['id'] ?>" <?php echo isset($plan_id) && $plan_id == $row['id'] ? "selected" : '' ?> data-months="<?php echo $row['months'] ?>" data-interest_percentage="<?php echo $row['interest_percentage'] ?>" data-penalty_rate="<?php echo $row['penalty_rate'] ?>"><?php echo $row['months'] . ' month/s [ '.$row['interest_percentage'].'%, '.$row['penalty_rate'].'% ]' ?></option>
